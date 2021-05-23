@@ -1,0 +1,11 @@
+mount -o rw,union,update /
+
+mv /usr/libexec/mobileactivationd /usr/libexec/mobileactivationdbak
+
+mv /usr/libexec/bp133 /usr/libexec/mobileactivationd
+
+chmod 755 /usr/libexec/mobileactivationd
+
+launchctl unload /System/Library/LaunchDaemons/com.apple.mobileactivationd.plist
+
+launchctl load /System/Library/LaunchDaemons/com.apple.mobileactivationd.plist
